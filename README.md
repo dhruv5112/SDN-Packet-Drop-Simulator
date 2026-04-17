@@ -30,21 +30,21 @@ Step 4: In OpenFlow, a match with no action results in the switch dropping the p
 Test 1: Connectivity (Ping)
 Normal traffic is allowed by the controller to ensure network health.
 
-Command: h1 ping -c 3 h2
+**Command:** h1 ping -c 3 h2
 
 Result: 0% packet loss.
 
 Test 2: Packet Drop Simulation (iperf)
 UDP traffic is generated to trigger the simulator's drop logic.
 
-Command: h1 iperf -c 10.0.0.2 -u -t 5
+**Command:** h1 iperf -c 10.0.0.2 -u -t 5
 
 Result: 0.00 bits/sec (100% loss).
 
 Test 3: Flow Table Verification
 We verify that the rule was installed in the switch hardware.
 
-Command: sh ovs-ofctl dump-flows s1
+**Command:** sh ovs-ofctl dump-flows s1
 
 Result: priority=1,udp,actions= (Empty action confirmed).
 
